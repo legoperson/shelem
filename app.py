@@ -8,7 +8,7 @@ Created on Mon Nov  4 21:07:59 2024
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
-import random
+import numpy as np
 import os
 import base64
 
@@ -24,13 +24,13 @@ def get_random_image_from_directory(directory="images"):
     if not image_files:
         return None  # Return None if no images found
     # Select a random image
-    random_image = random.choice(image_files)
+    random_image = np.random.choice(image_files)
     # Return the full path to the random image
     return os.path.join(directory, random_image)
 
 # Create Streamlit app
-st.title("SHELEME in Fuzhou")
-st.write("This map displays 5 nearby WAIMAI markers around you. Click a marker to see her image.")
+st.title("Random Image Map in Fuzhou")
+st.write("This map displays 5 random markers around Fuzhou. Click a marker to see an image from the images directory.")
 
 # Initialize map centered on Fuzhou
 m = folium.Map(location=[latitude, longitude], zoom_start=12)
@@ -38,9 +38,9 @@ m = folium.Map(location=[latitude, longitude], zoom_start=12)
 # Add 5 random markers around the Fuzhou location
 num_markers = 5  # Number of markers to add
 for _ in range(num_markers):
-    # Generate random coordinates close to Fuzhou
-    random_lat = latitude + random.uniform(-0.03, 0.03)
-    random_lon = longitude + random.uniform(-0.03, 0.03)
+    # Generate random coordinates close to Fuzhou using numpy
+    random_lat = latitude + np.random.uniform(-0.01, 0.01)
+    random_lon = longitude + np.random.uniform(-0.01, 0.01)
     
     # Get a random image from the directory
     image_path = get_random_image_from_directory()
