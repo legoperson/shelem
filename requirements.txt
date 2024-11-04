@@ -1,5 +1,7 @@
 streamlit
 folium
-random
-os
+streamlit_folium
+os 
 base64
+numpy
+ 
