@@ -3,6 +3,4 @@ folium
 streamlit_folium
 random
 os
-PIL
 base64
-io
