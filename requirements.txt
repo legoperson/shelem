@@ -1,6 +1,5 @@
 streamlit
 folium
-streamlit_folium
 random
 os
 base64
